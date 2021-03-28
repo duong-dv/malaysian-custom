@@ -1,0 +1,67 @@
+<nav class="navbar navbar-dark navbar-expand-md bg-dark">
+    <a class="navbar-brand logo" routerLink="/home" (click)="collapseNavbar()">
+        <span class="logo-img"></span>
+        <span jhiTranslate="global.title" class="navbar-title">Malaysiancustom</span> <span class="navbar-version">{{ version }}</span>
+    </a>
+    <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+        <fa-icon icon="bars"></fa-icon>
+    </a>
+    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
+        <ul class="navbar-nav ml-auto">
+            <li *ngSwitchCase="true" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="/home" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="home"></fa-icon>
+                        <span jhiTranslate="global.menu.home">Home</span>
+                    </span>
+                </a>
+            </li>
+
+            <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
+                    <span>
+                        <fa-icon></fa-icon>
+                        <span>Database</span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
+                    <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+                    <li *ngIf="!inProduction">
+                        <a class="dropdown-item" href='./h2-console' target="_tab" (click)="collapseNavbar()">
+                            <fa-icon icon="hdd" [fixedWidth]="true"></fa-icon>
+                            <span>H2 DB</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
+                    <span *ngIf="!getImageUrl()">
+                        <fa-icon icon="user"></fa-icon>
+                        <span jhiTranslate="global.menu.account.main">
+                            Account
+                        </span>
+                    </span>
+                    <span *ngIf="getImageUrl()">
+                        <img [src]="getImageUrl()" class="profile-image rounded-circle" alt="Avatar">
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" routerLink="account/password" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.account.password">Password</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" (click)="logout()" id="logout">
+                            <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.account.logout">Sign out</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

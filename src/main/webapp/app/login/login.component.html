@@ -1,0 +1,45 @@
+<div class="row">
+
+    <div class="col-md-6 m-auto border p-1">
+        <div class="row">
+            <img class="ml-auto mr-auto img-fluid" src="../../content/images/img-login.PNG"/>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-1">
+                <div class="alert alert-danger" *ngIf="authenticationError">
+                    <div *ngFor="let err of error">{{err}}</div>
+                </div>
+                <span></span>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-sm-12 col-form-label text-center mt-3">Enter your single sign-on User ID and password to login</label>
+                <label class="col-sm-12 col-form-label text-center mt-2">If you have forgotten your password. <a>Click here.</a></label>
+            </div>
+            <div class="col-md-6">
+                <form class="form mt-3 alert" style="background-color: lightgray" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label username-label" for="username">User ID</label>
+                        <input type="text" class="col-sm-9 form-control" name="username" id="username"
+                               formControlName="username" #username>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-3 col-form-label">Password</label>
+                        <input type="password" class="col-sm-9 form-control" name="password" id="password"
+                               formControlName="password">
+                    </div>
+
+                    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary" jhiTranslate="login.form.button">Submit</button>
+                    <button type="reset" [disabled]="loginForm.invalid" class="btn btn-primary ml-3" (click)="cancel()" jhiTranslate="login.form.clear">Clear</button>
+                    <div>
+                        <label>
+                            <span jhiTranslate="login.form.forgotpass"></span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1>Home Page</h1>
+
+            <div [ngSwitch]="isAuthenticated()">
+                <div class="alert alert-success" *ngSwitchCase="true">
+                <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
+                      [translateValues]="{ username: account.login }">You are logged in as user Id: "{{ account.login }}".</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

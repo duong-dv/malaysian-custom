@@ -1,0 +1,23 @@
+{
+  "login": {
+    "title": "Sign in",
+    "form": {
+      "password": "Password",
+      "password.placeholder": "Your password",
+      "rememberme": "Remember me",
+      "button": "Submit",
+      "clear": "Clear",
+      "forgotpass": "Forgot Password"
+    },
+    "messages": {
+      "error": {
+        "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again.",
+        "invalid-userid": "max 16 characters",
+        "invalid-passwd": "max 8 characters"
+      }
+    },
+    "password": {
+      "forgot": "Did you forget your password?"
+    }
+  }
+}

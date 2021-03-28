@@ -1,0 +1,6 @@
+id;login;password_hash;first_name;last_name;email;image_url;activated;lang_key;created_by;last_modified_by;login_false;login_first;question_one;question_two;question_three
+1;111;$2a$10$7a83in4sCqX0fr/NENx7webCqVLoMIULdO3txW3cu3.YsGrpvVle.;System;System;system@localhost;;true;en;system;system;3;true;0;0;0
+2;222;$2a$10$7a83in4sCqX0fr/NENx7webCqVLoMIULdO3txW3cu3.YsGrpvVle.;Anonymous;User;anonymous@localhost;;true;en;system;system;3;true;0;0;0
+3;333;$2a$10$7a83in4sCqX0fr/NENx7webCqVLoMIULdO3txW3cu3.YsGrpvVle.;Administrator;Administrator;admin@localhost;;true;en;system;system;3;true;0;0;0
+4;444;$2a$10$7a83in4sCqX0fr/NENx7webCqVLoMIULdO3txW3cu3.YsGrpvVle.;admin1;Administrator;admin1@localhost;;true;en;system;system;3;true;0;0;0
+5;555;$2a$10$7a83in4sCqX0fr/NENx7webCqVLoMIULdO3txW3cu3.YsGrpvVle.;User;User;user@localhost;;true;en;system;system;3;true;0;0;0
